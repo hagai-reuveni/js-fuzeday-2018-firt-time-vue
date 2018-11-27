@@ -1,16 +1,16 @@
 <template>
   <div class="navbar">
-    <div style="flex-grow:1;">
+    <div class="logo">
       <router-link to="/">
-        <font-awesome-icon icon="home"/>
+          <img src="../assets/robert.png"/>
       </router-link>
     </div>
     <div style="flex-grow:3;">
       <Search :onSearch="onSearchChange"/>
     </div>
-    <div style="flex-grow:1;text-align:right;">
-      <font-awesome-icon icon="shopping-cart"/>&nbsp;
-      <font-awesome-icon icon="question"/>
+    <div class="actions">
+      <img src="../assets/shopping.png"/>
+      <img src="../assets/qustion.png"/>
     </div>
   </div>
 </template>
@@ -18,7 +18,7 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .navbar {
-  display: flex;
+  display: flex; 
   flex-direction: row;
   align-items: center;
   font-size: 1.8em;
@@ -36,9 +36,8 @@
   border-radius: 5px;
 
   .logo {
-    width: 64px;
-    padding: 0 10px;
-    vertical-align: middle;
+    display: flex;
+    padding-right: 10px; 
   }
 
   a {
@@ -47,6 +46,18 @@
     &.active {
       color: #fe885f;
     }
+  }
+  .actions {
+    display: flex;
+    flex-grow:1;
+    align-items: center;
+    img {
+    height: 50px;
+    cursor: pointer;
+    &:nth-child(2) {
+      height: 40px;
+    }
+  }
   }
 }
 </style>

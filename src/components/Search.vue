@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <font-awesome-icon icon="search"/>
+    <img src="../assets/search.png"/>&nbsp;
     <input class="searchbox" type="search" v-model="searchValue">
   </div>
 </template>
@@ -8,7 +8,7 @@
 <style lang="scss" scoped>
 .container {
   margin: 0.2em 0em;
-  display: inline-block;
+  display: flex;
   min-height: 60px;
   width: 100%;
   background-color: transparent;
@@ -27,6 +27,10 @@
     &:focus {
       outline: none;
     }
+  }
+  img {
+    height: 50px;
+    margin-top: 9px; 
   }
 }
 </style>

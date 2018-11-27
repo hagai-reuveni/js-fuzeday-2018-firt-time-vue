@@ -56,6 +56,7 @@ body {
 article a {
 	opacity: 0.8;
 	z-index: 1;
+	cursor: pointer;
 }
 
 
