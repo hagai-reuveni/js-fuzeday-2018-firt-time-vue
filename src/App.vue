@@ -6,10 +6,19 @@
 </template>
 <script>
 	import Navbar from "./components/Navbar.vue";
+	import {mapActions as rootActions, MapperWithNamespace } from 'vuex';
 
+	// const {mapActions} = MapperWithNamespace('cart');
+ 
 	export default {
 		components: {
 			Navbar
+		},
+		methods: {
+			...rootActions(['fetch']),
+		},
+		mounted() {
+			this.fetch();
 		}
 	};
 </script>

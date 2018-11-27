@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { fetchById } from '../services/shopify-client';
+import {mapGetters} from 'vuex'
 
 export default {
 	name: 'ProductDetails',
@@ -19,10 +19,12 @@ export default {
           item: {}
       }
   },
+  computed: {
+    ...mapGetters(['getProductById'])
+  },
   mounted: function() {
-    fetchById(this.$route.params.id).then(product => {
-      this.item = product;
-    })
+    this.item = this.getProductById(this.$route.params.id);
+    console.log(this.item);
   }
 }
 </script>
