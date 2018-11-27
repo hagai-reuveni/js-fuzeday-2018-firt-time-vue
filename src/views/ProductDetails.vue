@@ -8,7 +8,7 @@
       <h4>{{ item.vendor }}</h4>
       <div class="description" v-html="item.descriptionHtml"/>
       <button v-if="isInCart" @click="removeFromCart"><span>Remove from Cart</span><span class="price">{{item.variants[0].price}}</span></button>
-      <button v-else @click="addToCart"><span>Add to Cart</span><span class="price">{{item.variants[0].price}}</span></button>
+      <button v-else @click="addToCart"><span>Add to Cart</span><span class="price">{{item.variants[0].price}} $</span></button>
     </div>
 	</div>
 </template>
@@ -87,6 +87,14 @@ export default {
         width: 100%;
         padding: 10px 20px;
         justify-content: space-between;
+
+        transition: .3s;
+        border: 0;
+        background-color: red;
+        color: white;
+        border-radius: 500px;
+        padding: 10px 20px;
+        font-size: 17px;
       }
 
       .price {
