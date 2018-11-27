@@ -1,0 +1,6 @@
+const creds = {
+  domain: 'royktikal.myshopify.com',
+  token: '51d605bbbcf9de3d833c4b6b904ae7b9'
+}
+
+export { creds };
