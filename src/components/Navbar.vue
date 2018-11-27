@@ -25,13 +25,15 @@
   line-height: 1.8em;
   padding: 0.1em 1em;
   border-bottom: 1px solid #eee;
-  background-color: rgba(34, 34, 64, 0.5);
+  background-color: rgba(255, 255, 255, 0.8);
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 999;
   height: 75px;
+  margin: 81px 10%;
+  border-radius: 5px;
 
   .logo {
     width: 64px;
