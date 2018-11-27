@@ -42,6 +42,7 @@ export default new Vuex.Store({
   },
   getters: {
     products: state => state.products,
-    getProductById: state => id => state.products.find(product => product.id === id)
+    getProductById: state => id => state.products.find(product => product.id === id),
+    isInCart: state => id => state.cart.find(product => product.id === id)
   }
 })

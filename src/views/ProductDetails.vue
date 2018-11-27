@@ -7,7 +7,8 @@
       <h1>{{ item.title }}</h1>
       <h4>{{ item.vendor }}</h4>
       <div class="description" v-html="item.descriptionHtml"/>
-      <button @click="addToCart"><span>Add to Cart</span><span class="price">{{item.variants[0].price}}</span></button>
+      <button v-if="isInCart" @click="removeFromCart"><span>Remove from Cart</span><span class="price">{{item.variants[0].price}}</span></button>
+      <button v-else @click="addToCart"><span>Add to Cart</span><span class="price">{{item.variants[0].price}}</span></button>
     </div>
 	</div>
 </template>
@@ -20,13 +21,19 @@ export default {
   computed: {
     item() {
       return this.$store.getters.getProductById(this.$route.params.id);
+    },
+    isInCart() {
+      return this.$store.getters.isInCart(this.item);
     }
   },
   methods: {
     addToCart() {
-      return this.$store.dispatch('addToCart', this.item);
+      this.$store.dispatch('addToCart', this.item);
+    },
+    removeFromCart() {
+      this.$store.dispatch('removeFromCart', this.item);
     }
-  }
+  },
 }
 </script>
 
