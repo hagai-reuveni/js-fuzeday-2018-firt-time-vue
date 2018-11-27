@@ -1,12 +1,13 @@
 <template>
 	<div class="product" v-if="item">
     <div class="image">
-      <img :src="item.images[0].src" />
+      <img :src="item.defaultImage.src" />
     </div>
     <div class="details">
       <h1>{{ item.title }}</h1>
       <h4>{{ item.vendor }}</h4>
       <div class="description" v-html="item.descriptionHtml"/>
+      <div class="price">{{item.variants[0].price}}</div>
     </div>
 	</div>
 </template>
@@ -28,6 +29,7 @@ export default {
 <style scoped lang="scss">
   .product {
     display: flex;
+    font-family: verdana;
 
     .image {
       flex: 1;
@@ -40,6 +42,7 @@ export default {
 
     .details {
       flex: 0.8;
+      margin: 20px;
 
       h1 {
         font-size: 22px;
@@ -49,8 +52,14 @@ export default {
         font-size:18px;
       }
 
-      description {
+      .description {
         font-size: 14px;
+        margin: 10px 0 30px;
+      }
+
+      .price {
+        font-size: 12px;
+        font-weight: bold;
       }
     }
   }

@@ -21,15 +21,10 @@ export default new Vuex.Store({
   },
   actions: {
     fetch({ state, commit }, payload) {
-      if (!payload) {
-        client.product.fetchAll(150).then(products => {
-          commit('fetch', products)
-        })
-      } else {
-        client.product.fetchQuery({ query: payload }).then(products => {
-          commit('fetch', products)
-        })
-      }
+      const promise = !payload ? client.product.fetchAll(150) : client.product.fetchQuery({ query: payload });
+      promise.then(products => {
+        commit('fetch', products.map(p => ({...p, defaultImage: p.images.length > 1 ? p.images[1] : p.images[0]})));
+      })
     }
   },
   getters: {
