@@ -3,14 +3,13 @@
         <h1>{{ msg }}</h1>
         <h3>Installed CLI Plugins</h3>
         <section class="css-grid">
-
             <article v-for="product in products">
-                <a class="css-grid__link" href="#">
+                <router-link :to="`/product/${product.id}}`" class="css-grid__link" href="#">
                     <figure class="absolute-bg"
                             :style="'background-image: url('+ product.images[0].src + ');'">
 
                     </figure>
-                </a>
+                </router-link>
             </article>
 
         </section>
