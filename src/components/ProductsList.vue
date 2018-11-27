@@ -20,26 +20,16 @@
 </template>
 
 <script>
-    import { client } from '../services/shopify-client';
+	import {mapGetters} from 'vuex'
 
     export default {
         name: 'HelloWorld',
         props: {
             msg: String
-        },
-        mounted: function () {
-            client.product.fetchAll()
-                .then((products) => {
-                    this.products = products;
-                    // Do something with the products
-                    console.log(products);
-                });
-        },
-        data: function () {
-            return {
-                products: []
-            }
-        }
+				},
+				computed: {
+					...mapGetters(['products'])
+				}
     }
 </script>
 
