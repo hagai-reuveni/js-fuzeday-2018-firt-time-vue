@@ -1,15 +1,26 @@
 <template>
   <div class="navbar">
-    <router-link to="/">
-      <font-awesome-icon icon="home"/>
-    </router-link>
-    <Search :onSearch="onSearchChange"/>
+    <div style="flex-grow:1;">
+      <router-link to="/">
+        <font-awesome-icon icon="home"/>
+      </router-link>
+    </div>
+    <div style="flex-grow:3;">
+      <Search :onSearch="onSearchChange"/>
+    </div>
+    <div style="flex-grow:1;text-align:right;">
+      <font-awesome-icon icon="shopping-cart"/>&nbsp;
+      <font-awesome-icon icon="question"/>
+    </div>
   </div>
 </template>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .navbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   font-size: 1.8em;
   line-height: 1.8em;
   padding: 0.1em 1em;

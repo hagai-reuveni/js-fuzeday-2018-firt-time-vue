@@ -7,18 +7,26 @@
 
 <style lang="scss" scoped>
 .container {
-  margin: 0.2em 2em 0.2em 2em;
+  margin: 0.2em 0em;
   display: inline-block;
   min-height: 60px;
-  min-width: 300px;
+  width: 100%;
+  background-color: transparent;
   .searchbox {
-    display: inline-block;
+    width: calc(100% - 2em);
     margin-left: 0.2em;
+    display: inline-block;
     min-height: 80%;
     font-size: 1em;
     line-height: 1em;
     padding: 0;
     -webkit-appearance: textfield;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid gold;
+    &:focus {
+      outline: none;
+    }
   }
 }
 </style>
