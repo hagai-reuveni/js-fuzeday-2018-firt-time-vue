@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" v-bind:class="{ inProdact: inProdact }">
     <Navbar :onSearch="onSearch"/>
     <div class="main-container">
       <router-view/>
@@ -21,6 +21,11 @@ export default {
       this.fetch(searchValue);
     },
     ...rootActions(["fetch"])
+	},
+	computed: {
+    inProdact() {
+			return (this.$route.params.id ? true : false);
+		}
   },
   mounted() {
     this.fetch();
@@ -32,6 +37,11 @@ export default {
   font-family: Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
+	color: #2c3e50;
+	&.inProdact{
+		.navbar{
+			display: none;
+		}
+	}
 }
 </style>
