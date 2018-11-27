@@ -6,12 +6,4 @@ const client = Client.buildClient({
 	storefrontAccessToken: creds.token
 });
 
-const fetchAll = function() {
-	return client.product.fetchAll();
-}
-
-const fetchById = function(id) {
-	return fetchAll().then(list => list.find(product => String(product.id) === id));
-}
-
-export {client, fetchAll, fetchById};
+export {client};

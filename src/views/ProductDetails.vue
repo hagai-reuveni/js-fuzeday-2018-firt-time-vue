@@ -5,6 +5,8 @@
     </div>
     <div class="details">
       <h1>{{ item.title }}</h1>
+      <h4>{{ item.vendor }}</h4>
+      <div class="description" v-html="item.descriptionHtml"/>
     </div>
 	</div>
 </template>
@@ -25,14 +27,30 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
   .product {
+    display: flex;
+
     .image {
-      height: 200px;
-      width: 200px;
-      border: 1px solid black;
+      flex: 1;
 
       img {
         height: 100%;
         width: 100%;
+      }
+    }
+
+    .details {
+      flex: 0.8;
+
+      h1 {
+        font-size: 22px;
+      }
+
+      h4 {
+        font-size:18px;
+      }
+
+      description {
+        font-size: 14px;
       }
     }
   }

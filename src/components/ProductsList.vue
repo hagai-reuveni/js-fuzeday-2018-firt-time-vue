@@ -2,7 +2,7 @@
   <div>
     <section class="css-grid">
       <article v-for="product in products" :key="product.id">
-        <router-link :to="`/product/${product.id}}`" class="css-grid__link" href="#">
+        <router-link :to="`/product/${product.id}`" class="css-grid__link" href="#">
           <figure
             class="absolute-bg"
             :style="'background-image: url('+ product.images[0].src + ');'"

@@ -18,20 +18,18 @@ export default new Vuex.Store({
   mutations: {
     fetch(state, payload) {
       state.products = [...payload];
-      console.log('state.products', state.products);
     }
   },
   actions: {
     fetch({ state, commit }, payload) {
       client.product.fetchAll()
-                .then((products) => {
-                    // console.log(products)
-                    commit('fetch', products);
-                });
+        .then((products) => {
+            commit('fetch', products);
+        });
     },
   },
   getters: {
+    products: state => state.products,
     getProductById: state => id => state.products.find(product => product.id === id),
-    products: state => state.products
   }
 })
