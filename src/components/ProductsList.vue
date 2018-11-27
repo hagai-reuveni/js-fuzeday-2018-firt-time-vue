@@ -7,6 +7,7 @@
 										:style="'background-image: url('+ product.defaultImage.src + ');'">
 
 						</figure>
+						<button class="buy-button" type="button">Buy</button>
 				</router-link>
 				<div class="item-bg"></div>
 			</article>
@@ -240,13 +241,33 @@ figure {
     }
     &:hover {
       &:after {
-        opacity: 0.3;
+        opacity: 0;
       }
-
       .absolute-bg {
-        transform: scale(1.1);
-      }
-    }
+				transform: scale(1.1);
+				opacity: .3;
+			}
+
+			.buy-button {
+                   opacity: 1;
+                   bottom: 40px;
+               }
+		}
+		.buy-button {
+			transition: .3s;
+			position: absolute;
+			bottom: -50px;
+			left: 50%;
+			transform: translateX(-50%);
+			border: 0;
+			background-color: red;
+			color: white;
+			border-radius: 500px;
+			padding: 10px 20px;
+			font-size: 17px;
+			min-width: 40%;
+			min-height: 7%;
+		}
   }
 }
 </style>
