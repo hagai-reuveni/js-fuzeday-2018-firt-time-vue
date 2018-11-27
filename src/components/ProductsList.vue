@@ -1,14 +1,15 @@
 <template>
   <div>
     <section class="css-grid">
-      <article v-for="product in products" :key="product.id">
-        <router-link :to="`/product/${product.id}`" class="css-grid__link" href="#">
-          <figure
-            class="absolute-bg"
-            :style="'background-image: url('+ product.images[0].src + ');'"
-          ></figure>
-        </router-link>
-      </article>
+			<article v-for="product in products" style="position: relative;" :key="product.id">
+				<router-link :to="`/product/${product.id}`" class="css-grid__link" href="#">
+						<figure class="absolute-bg"
+										:style="'background-image: url('+ (product.images[1] || product.images[0]).src + ');'">
+
+						</figure>
+				</router-link>
+				<div class="item-bg"></div>
+			</article>
     </section>
     <!--<ul>-->
     <!--<li v-for="product in products">{{ product.title }}</li>-->
@@ -50,6 +51,17 @@ $mq-xlarge: 1840px;
 body {
   height: 100%;
   width: 100%;
+}
+
+article a {
+	opacity: 0.8;
+	z-index: 1;
+}
+
+
+.item-bg {
+	position: absolute; width: 100%; height: 100%; top:0; left: 0;
+	background-image: url(//res-format-story.playbuzz.com/images/patterns/white/pattern_01.png);
 }
 
 //
