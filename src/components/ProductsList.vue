@@ -4,7 +4,7 @@
 			<article v-for="product in products" style="position: relative;" :key="product.id">
 				<router-link :to="`/product/${product.id}`" class="css-grid__link" href="#">
 						<figure class="absolute-bg"
-										:style="'background-image: url('+ (product.images[1] || product.images[0]).src + ');'">
+										:style="'background-image: url('+ product.defaultImage.src + ');'">
 
 						</figure>
 				</router-link>
