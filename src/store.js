@@ -1,7 +1,6 @@
 import Vue from 'vue'
-import Vuex from 'vuex';
-import { client } from './services/shopify-client';
-
+import Vuex from 'vuex'
+import { client } from './services/shopify-client'
 
 Vue.use(Vuex)
 
@@ -17,19 +16,24 @@ export default new Vuex.Store({
   },
   mutations: {
     fetch(state, payload) {
-      state.products = [...payload];
+      state.products = [...payload]
     }
   },
   actions: {
     fetch({ state, commit }, payload) {
-      client.product.fetchAll()
-        .then((products) => {
-            commit('fetch', products);
-        });
-    },
+      if (!payload) {
+        client.product.fetchAll(150).then(products => {
+          commit('fetch', products)
+        })
+      } else {
+        client.product.fetchQuery({ query: payload }).then(products => {
+          commit('fetch', products)
+        })
+      }
+    }
   },
   getters: {
     products: state => state.products,
-    getProductById: state => id => state.products.find(product => product.id === id),
+    getProductById: state => id => state.products.find(product => product.id === id)
   }
 })

@@ -21,9 +21,6 @@ import { mapGetters } from "vuex";
 
 export default {
   name: "ProductList",
-  props: {
-    msg: String
-  },
   computed: {
     ...mapGetters(["products"])
   }

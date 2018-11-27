@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Navbar/>
+    <Navbar :onSearch="onSearch"/>
     <div class="main-container">
       <router-view/>
     </div>
@@ -17,6 +17,9 @@ export default {
     Navbar
   },
   methods: {
+    onSearch(searchValue) {
+      this.fetch(searchValue);
+    },
     ...rootActions(["fetch"])
   },
   mounted() {
