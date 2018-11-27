@@ -23,7 +23,7 @@ export default {
       return this.$store.getters.getProductById(this.$route.params.id);
     },
     isInCart() {
-      return this.$store.getters.isInCart(this.item);
+      return this.$store.getters.isInCart(this.item.id);
     }
   },
   methods: {
