@@ -20,7 +20,7 @@
 </template>
 
 <script>
-    import { client } from '../services/shopify-client';
+    import { fetchAll } from '../services/shopify-client';
 
     export default {
         name: 'HelloWorld',
@@ -28,7 +28,7 @@
             msg: String
         },
         mounted: function () {
-            client.product.fetchAll()
+            fetchAll()
                 .then((products) => {
                     this.products = products;
                     // Do something with the products

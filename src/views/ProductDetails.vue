@@ -10,25 +10,19 @@
 </template>
 
 <script>
+import { fetchById } from '../services/shopify-client';
+
 export default {
-	name: 'Product',
-	props: {
-		item: {
-      type: Object,
-      default: function() {
-        return {
-          id: 1,
-          title: 'hello',
-          description: 'world',
-          images: [{
-            src: 'https:\/\/cdn.shopify.com\/s\/files\/1\/0049\/5186\/7490\/products\/product-image-834060664.jpg?v=1541239841',
-          }]
-        }
+	name: 'ProductDetails',
+  data: function () {
+      return {
+          item: {}
       }
-    }
-	},
+  },
   mounted: function() {
-    console.log(this.item);
+    fetchById(this.$route.params.id).then(product => {
+      this.item = product;
+    })
   }
 }
 </script>

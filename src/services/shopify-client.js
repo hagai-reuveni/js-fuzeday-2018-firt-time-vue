@@ -11,7 +11,7 @@ const fetchAll = function() {
 }
 
 const fetchById = function(id) {
-	return 'hello';
+	return fetchAll().then(list => list.find(product => String(product.id) === id));
 }
 
-export {client};
+export {client, fetchAll, fetchById};
