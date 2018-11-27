@@ -1,5 +1,5 @@
 <template>
-	<div class="product">
+	<div class="product" v-if="item">
     <div class="image">
       <img :src="item.images[0].src" />
     </div>
@@ -14,18 +14,11 @@ import {mapGetters} from 'vuex'
 
 export default {
 	name: 'ProductDetails',
-  data: function () {
-      return {
-          item: {}
-      }
-  },
   computed: {
-    ...mapGetters(['getProductById'])
+    item() {
+      return this.$store.getters.getProductById(this.$route.params.id);
+    }
   },
-  mounted: function() {
-    this.item = this.getProductById(this.$route.params.id);
-    console.log(this.item);
-  }
 }
 </script>
 
