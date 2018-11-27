@@ -1,19 +1,19 @@
 <template>
 	<div class="product" v-if="item">
     <div class="image">
-      <img :src="item.defaultImage.src" />
+      <div class="img" :style="'background-image: url('+ item.defaultImage.src + ');'"/>
     </div>
     <div class="details">
       <h1>{{ item.title }}</h1>
       <h4>{{ item.vendor }}</h4>
       <div class="description" v-html="item.descriptionHtml"/>
-      <div class="price">{{item.variants[0].price}}</div>
+      <button @click="addToCart"><span>Add to Cart</span><span class="price">{{item.variants[0].price}}</span></button>
     </div>
 	</div>
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
+import {mapGetters, mapActions} from 'vuex'
 
 export default {
 	name: 'ProductDetails',
@@ -22,6 +22,11 @@ export default {
       return this.$store.getters.getProductById(this.$route.params.id);
     }
   },
+  methods: {
+    addToCart() {
+      return this.$store.dispatch('addToCart', this.item);
+    }
+  }
 }
 </script>
 
@@ -33,10 +38,22 @@ export default {
 
     .image {
       flex: 1;
+      position: relative;
 
-      img {
+      .img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 0;
+
         height: 100%;
         width: 100%;
+
+        background-position: 50%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        overflow: hidden;
+        transition: transform 300ms ease;
       }
     }
 
@@ -55,6 +72,14 @@ export default {
       .description {
         font-size: 14px;
         margin: 10px 0 30px;
+      }
+
+      button {
+        display: flex;
+        height: 50px;
+        width: 100%;
+        padding: 10px 20px;
+        justify-content: space-between;
       }
 
       .price {

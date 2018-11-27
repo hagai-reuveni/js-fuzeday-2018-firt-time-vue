@@ -12,11 +12,18 @@ export default new Vuex.Store({
   // },
   state: {
     products: [],
-    currentProduct: null
+    currentProduct: null,
+    cart: [],
   },
   mutations: {
     fetch(state, payload) {
       state.products = [...payload]
+    },
+    addToCart(state, payload) {
+      state.cart = [...state.cart, payload]
+    },
+    removeFromCart(state, payload) {
+      state.cart = state.cart.filter(p => p.id !== payload.id);
     }
   },
   actions: {
@@ -25,6 +32,12 @@ export default new Vuex.Store({
       promise.then(products => {
         commit('fetch', products.map(p => ({...p, defaultImage: p.images.length > 1 ? p.images[1] : p.images[0]})));
       })
+    },
+    addToCart({ state, commit }, payload) {
+      commit('addToCart', payload);
+    },
+    removeFromCart({ state, commit }, payload) {
+      commit('removeFromCart', payload);
     }
   },
   getters: {
