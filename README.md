@@ -7,6 +7,9 @@
 * Ofir Herzas
 * Hagai Reuveni
 
+![List page](https://github.com/hagai-reuveni/js-fuzeday-2018-firt-time-vue/blob/master/src/assets/screenShot1.png?raw=true)
+
+![Product details page](https://github.com/hagai-reuveni/js-fuzeday-2018-firt-time-vue/blob/master/src/assets/screenShot2.png?raw=true)
 
 
 ### requirements:
