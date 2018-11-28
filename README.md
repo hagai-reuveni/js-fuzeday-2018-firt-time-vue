@@ -1,4 +1,13 @@
-# js-fuzeday-2018-starter-kit
+# js fuzeday 2018: First 'touch' with Vue.js
+## Mission: build a responive mobile store that will work with shopify's API.
+
+### Team members
+* Dudu Basher - Team lead
+* Robert Ferentz
+* Ofir Herzas
+* Hagai Reuveni
+
+
 
 ### requirements:
 **Main products gallary page** includes:
